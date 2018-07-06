@@ -1,0 +1,49 @@
+---
+title: "Benchmark on Random Graph Generation"
+author: "George G. Vega Yon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(randgraph)
+library(igraph)
+library(microbenchmark)
+```
+
+# Erdos Renyi
+
+```{r}
+ans100 <- microbenchmark(
+  igraph    = sample_gnp(100, .05, directed = FALSE),
+  randgraph = rgraph_er_gnp(100, .05),
+  times = 1e3,
+  unit = "relative"
+)
+
+ans100
+```
+
+
+# Barabasi Albert
+
+```{r}
+ans100 <- microbenchmark(
+  igraph    = barabasi.game(100, m = 2),
+  randgraph = rgraph_ba(100, m = 2),
+  times = 1e3,
+  unit = "relative"
+)
+
+ans100
+```
+

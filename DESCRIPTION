@@ -1,0 +1,24 @@
+Package: randgraph
+Version: 0.0.0.9000
+Title: Random Graph Algorithms
+Description: What the package does (one paragraph).
+Authors@R: person("George", "Vega Yon", email = "g.vegayon@gmail.com", role = c("aut", "cre"), 
+  comment=c(ORCID = "0000-0002-3171-0844"))
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+RoxygenNote: 6.0.1.9000
+LinkingTo: 
+    Rcpp, RcppArmadillo
+Imports: 
+    Rcpp,
+    igraph
+Roxygen: list(markdown = TRUE)
+Suggests: 
+    knitr,
+    rmarkdown,
+    microbenchmark
+VignetteBuilder: knitr
+URL: https://github.com/USCCANA/randgraph
+BugReports: https://github.com/USCCANA/randgraph/issues
